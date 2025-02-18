@@ -8,6 +8,7 @@ resource "aws_vpc" "prod" {
 resource "aws_subnet" "prod" {
     vpc_id = aws_vpc.prod.id
     cidr_block = "10.0.0.0/24"
+    map_public_ip_on_launch = true
     tags = {
       Name = "pub_subnet"
     }
@@ -16,6 +17,7 @@ resource "aws_subnet" "prod" {
 resource "aws_subnet" "prod1" {
     vpc_id = aws_vpc.prod.id
     cidr_block = "10.0.1.0/24"
+    map_public_ip_on_launch = false
     tags = {
       Name="pvt_subnet"
     }
